@@ -31,9 +31,11 @@ chordBank = {
     1: [1, 3, 5],
     2: [2, 4.5, 6],
     3: [3, 5.5, 7],
+    2.5: [2.5, 5, 6.5],
     4: [4, 6, 1],
     5: [5, 7, 2],
     6: [6, 1, 3],
+    6.5: [6.5, 2, 4],
     7: [7, 2, 4],
     }
 
@@ -141,15 +143,61 @@ pages = [
 ]
 
 
+pages = [
+    (
+    'Where the Wild River Rolls (verse)',
+    [
+    (1, 0),
+    (2.5, None),
+    (6.5, None),
+    (1, 0),
+    (2.5, None),
+    (5, None),
+ 
+    ]
+    ),
+
+    (
+    'Where the Wild River Rolls (verse 2)',
+    [
+    (1, 0),
+    (2.5, None),
+    (6.5, None),
+    (1, 0),
+    (5, None),
+    (1, None)  
+ 
+    ]
+    ),    
+    
+    
+ 
+    
+    (
+    'Where the Wild River Rolls (chorus)',
+    [
+    (2.5, 2),
+    (6.5, 0),
+    (1, 0),
+    (2.5, 2),
+    (6.5, 0),
+    (5, 1),
+
+    ]
+    ),
+]
+
 
 # just for display purposes
 chordNamesDict = {
     1: 'I',
     2: 'II',
+    2.5: 'bIII',
     3: 'III',
     4: 'IV',
     5: 'V',
     6: 'VI',
+    6.5: 'bVII',
     7: 'VII'
     }
 
@@ -313,7 +361,8 @@ for pageNumber, (pageTitle, chordProgression) in enumerate(pages):
 
     for thisRow, tone in enumerate(tonalRange):
         if '.' in str(tone):
-            toneString = '#' + str(floor(tone))
+            #toneString = '#' + str(floor(tone))
+            toneString = 'b' + str(ceil(tone))
         else:
             toneString = str(tone)
         text(toneString, (-25, thisRow*row-4), align="right")
@@ -400,7 +449,15 @@ for pageNumber, (pageTitle, chordProgression) in enumerate(pages):
                     oval(-20, -20, 40, 40)
                     fill(1)
                     font(fontName, 20)
-                    text(str(tone).replace('.5', '#'), (0, -7), align="center")
+                    
+                    if tone != int(tone):
+                        toneDisplay = 'b' + str(int(tone+.5))
+                        #toneDisplay = '#' + str(int(tone-.5))
+                    else:
+                        toneDisplay = str(tone)
+                    
+                    
+                    text(toneDisplay, (0, -7), align="center")
                 
 
                 prevTone = tone

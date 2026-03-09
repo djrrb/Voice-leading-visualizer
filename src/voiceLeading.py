@@ -5,16 +5,17 @@
 # Preferences
 
 # the relative path to the markup file
-plaintextPath = 'voiceLeading/WhereTheWildRiverRolls.voiceLeading'
+plaintextPath = 'voiceLeading/OldHomePlace.voiceLeading'
 
 # how many tones to show above and below the root
-semitonesAbove = 12
-semitonesBelow = 6
+semitonesAbove = 13
+semitonesBelow = 7
 
 # connect lines for possible paths below this threshhold
 possiblePathMaxDistance = 6
 
-flatSharpMode = 1 # 0 is sharps, 1 is flats
+# 0 is sharps, 1 is flats
+flatSharpMode = 0 
 
 # invert the entire chart
 globalInversion = 0
